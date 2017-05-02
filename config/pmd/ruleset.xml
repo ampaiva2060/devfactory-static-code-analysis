@@ -6,7 +6,7 @@
     Read first before adding any modifications:
     http://pmd.sourceforge.net/pmd-4.3.0/howtomakearuleset.html
 
-    Revision: 1.06
+    Revision: 1.07
     Date: 2017-03-28
     Author: Boris Yakovito <boris.yakovito@aurea.com>
     Slack: https://devfactorydev.slack.com/messages/code-quality
@@ -141,7 +141,7 @@
                 or
                 ../../Annotation/MarkerAnnotation/Name[@Image='UtilityClass' and count(//ImportDeclaration/Name[@Image='lombok.experimental.UtilityClass']) = 1]
                 or
-                ../../Annotation/MarkerAnnotation/Name[@Image='SpringBootApplication']
+                ../../Annotation/*/Name[@Image='SpringBootApplication']
             ]"/>
         </properties>
     </rule>
