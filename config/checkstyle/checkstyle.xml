@@ -12,8 +12,8 @@
 
     To completely disable a check, just comment it out or delete it from the file.
 
-    Revision: 1.09
-    Date: 2017-04-11
+    Revision: 1.10
+    Date: 2017-04-07
     Author: Boris Yakovito <boris.yakovito@aurea.com>
     Slack: https://devfactorydev.slack.com/messages/code-quality
  -->
@@ -23,11 +23,17 @@
 
     <property name="severity" value="error"/>
 
-    <property name="fileExtensions" value="java, properties, xml"/>
+    <property name="fileExtensions" value="java, properties, xml, yml, gradle, sh"/>
     <!-- Checks for whitespace                               -->
     <!-- See http://checkstyle.sf.net/config_whitespace.html -->
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
+    </module>
+
+    <!-- See http://checkstyle.sourceforge.net/config_misc.html#NewlineAtEndOfFile -->
+    <module name="NewlineAtEndOfFile">
+        <property name="lineSeparator" value="lf"/>
+        <property name="fileExtensions" value="java, properties, xml, yml, gradle, sh, js, css, html"/>
     </module>
 
     <!-- allow using @SuppressWarnings annotations -->
@@ -155,7 +161,7 @@
                 value="Parameter name ''{0}'' must match pattern ''{1}''."/>
         </module>
         <module name="CatchParameterName">
-            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            <property name="format" value="^(e|t|ex|[a-z][a-z][a-zA-Z]+)$"/>
             <message key="name.invalidPattern"
                 value="Catch parameter name ''{0}'' must match pattern ''{1}''."/>
         </module>
